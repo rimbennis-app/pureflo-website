@@ -12,12 +12,18 @@ const variants = [
 const t = {
   en: {
     nav: { home: "HOME", h5: "5L EDITION", h2: "2.5L EDITION", contact: "CONTACT" },
-    hero: { eyebrow: "PREMIUM PORTABLE HYGIENE SYSTEM", tagline1: "Water-based hygiene,", tagline2: "portable and premium.", subtitle: "PUREFLO is a portable hygiene spray designed for premium hotels, spas, restaurants and rentals — no construction, no fixed installation.", cta1: "DISCOVER THE COLLECTION", cta2: "REQUEST A PILOT" },
-    vision: { eyebrow: "THE VISION", title: "Premium outside. Simple inside.", p1t: "Premium outside", p1d: "A refined object designed to remain visible in elegant bathrooms.", p2t: "Simple inside", p2d: "A robust removable water tank and simplified architecture, built to last.", p3t: "Built to scale", p3d: "Hospitality credibility first, then a Home Edition for the everyday." },
+    hero: { eyebrow: "PREMIUM PORTABLE HYGIENE SYSTEM", tagline1: "Water-based hygiene,", tagline2: "portable and premium.", subtitle: "PUREFLO is a portable hygiene spray designed for premium hotels, spas, restaurants and rentals — no construction, no fixed installation.", cta1: "DISCOVER THE COLLECTION" },
+    why: { eyebrow: "WHY PUREFLO", items: [
+      { title: "Water-based hygiene", text: "An essential practice for many international travellers, and a new comfort expectation that is beginning to emerge across Europe." },
+      { title: "0 construction. 0 plumbing.", text: "No fixed installation, no plumbing connections. A simple solution to integrate into a guest room, spa or client restrooms." },
+      { title: "Enhanced guest experience", text: "A discreet yet highly appreciated detail that shows your venue anticipates your guests' real needs." },
+      { title: "A more responsible approach", text: "An alternative that can help reduce toilet paper use, while improving the feeling of cleanliness and comfort." },
+    ]},
+    vision: { eyebrow: "THE VISION", title1: "An essential need.", title2: "An elegant answer.", text: "Designed around water-based hygiene, PUREFLO makes an often-expected yet rarely offered comfort experience simple to integrate." },
     collection: { eyebrow: "THE COLLECTION", title: "Two editions, one philosophy.", subtitle: "Choose the format that suits your space. Each edition is available in four refined finishes.", explore: "Explore" },
     features: { eyebrow: "DESIGNED FOR THE DETAIL", title: "A considered object, in every gesture.", f1t: "Removable water tank", f1d: "A robust inner tank, easy to remove, refill and clean.", f2t: "Rechargeable pump", f2d: "Consistent water flow with discreet USB-C charging.", f3t: "Ergonomic spray wand", f3d: "Simple, effective and comfortable for everyday use.", f4t: "No visible interface", f4d: "A clean exterior without touch screens or unnecessary controls." },
     hospitality: { eyebrow: "MADE FOR MODERN HOSPITALITY", title: "Thoughtful comfort,", title2: "elevated experiences.", subtitle: "For many international guests, water-based hygiene is an essential daily habit. PUREFLO allows venues to offer that comfort instantly, without installation.", items: ["Boutique hotels & design-led guesthouses", "Premium Airbnb hosts & serviced apartments", "Restaurants with refined restrooms", "Wellness spaces, spas & private lounges", "Hospitality operators serving international guests", "Renovation-free upgrade for any bathroom"] },
-    pilot: { eyebrow: "PILOT PROGRAM", title: "Bring PUREFLO to your venue.", subtitle: "Selected boutique hotels, restaurants and premium hospitality spaces are invited to host PUREFLO units for a pilot placement. Discover how a refined detail can elevate your guest experience.", cta: "REQUEST A PILOT DISCUSSION" },
+    pilot: { eyebrow: "HOSPITALITY INQUIRIES", title: "Bring PUREFLO to your venue.", subtitle: "PUREFLO is designed for boutique hotels, spas, luxury rentals and premium hospitality spaces looking to offer an elegant, water-based hygiene experience without fixed installation.", cta: "REQUEST THE B2B BROCHURE" },
     product: { back: "Back to collection", finishLabel: "FINISH", spec: "SPECIFICATIONS", specTitle: "Considered, in every dimension.", capacity: "CAPACITY", dimensions: "DIMENSIONS", power: "POWER", usbc: "USB-C Rechargeable", chargingPort: "Discreet charging port", bestFor: "Best suited for", inBox: "What's in the box", boxItems: ["1× PUREFLO unit with premium outer shell", "1× Removable water tank", "1× Spray wand", "1× Hose", "1× USB-C cable", "1× User manual"], also: "ALSO IN THE COLLECTION", discover: "Discover the", view: "VIEW THE", cta: "REQUEST A PILOT" },
     contact: { back: "Back to home", eyebrow: "GET IN TOUCH", title: "Request a pilot.", subtitle: "Tell us about your venue. We're partnering with selected boutique hotels, restaurants and premium hospitality spaces for pilot placements.", name: "NAME", venue: "VENUE / COMPANY", email: "EMAIL", message: "TELL US ABOUT YOUR VENUE", send: "SEND ENQUIRY", thanks: "Thank you.", confirmation: "Your enquiry has been received. We will be in touch shortly.", return: "RETURN HOME" },
     footer: { brand: "Premium portable hygiene system. Thoughtful comfort for modern hospitality.", collection: "COLLECTION", contact: "CONTACT", rights: "© 2026 PUREFLO. All rights reserved.", tagline: "Luxury lives in the details." },
@@ -28,12 +34,18 @@ const t = {
   },
   fr: {
     nav: { home: "ACCUEIL", h5: "ÉDITION 5L", h2: "ÉDITION 2.5L", contact: "CONTACT" },
-    hero: { eyebrow: "SYSTÈME D'HYGIÈNE PORTABLE PREMIUM", tagline1: "L'hygiène à l'eau,", tagline2: "en version portable et premium.", subtitle: "PUREFLO est une douchette d'hygiène portative pensée pour les hôtels, spas, restaurants et locations haut de gamme — sans travaux, sans installation fixe.", cta1: "DÉCOUVRIR LA COLLECTION", cta2: "DEMANDER UN PILOTE" },
-    vision: { eyebrow: "LA VISION", title: "Premium dehors. Simple dedans.", p1t: "Premium dehors", p1d: "Un objet raffiné conçu pour rester visible dans les salles de bains élégantes.", p2t: "Simple dedans", p2d: "Un réservoir d'eau amovible robuste et une architecture simplifiée, conçus pour durer.", p3t: "Conçu pour évoluer", p3d: "D'abord la crédibilité hôtelière, puis une Édition Maison pour le quotidien." },
+    hero: { eyebrow: "SYSTÈME D'HYGIÈNE PORTABLE PREMIUM", tagline1: "L'hygiène à l'eau,", tagline2: "en version portable et premium.", subtitle: "PUREFLO est une douchette d'hygiène portative pensée pour les hôtels, spas, restaurants et locations haut de gamme — sans travaux, sans installation fixe.", cta1: "DÉCOUVRIR LA COLLECTION" },
+    why: { eyebrow: "POURQUOI PUREFLO", items: [
+      { title: "Hygiène à l'eau", text: "Une pratique essentielle pour de nombreux voyageurs internationaux, et une nouvelle attente de confort qui commence à émerger en Europe." },
+      { title: "0 travaux. 0 plomberie.", text: "Aucune installation fixe, aucun raccordement plomberie. Une solution simple à intégrer dans une chambre, un spa ou des toilettes clients." },
+      { title: "Expérience client renforcée", text: "Un détail discret mais très apprécié, qui montre que votre établissement anticipe les besoins réels de ses clients." },
+      { title: "Approche plus responsable", text: "Une alternative qui peut contribuer à réduire l'usage du papier toilette, tout en améliorant la sensation de propreté et de confort." },
+    ]},
+    vision: { eyebrow: "LA VISION", title1: "Un besoin essentiel.", title2: "Une réponse élégante.", text: "Pensé pour l'hygiène à l'eau, PUREFLO rend accessible une expérience de confort souvent attendue, rarement proposée, et désormais simple à intégrer." },
     collection: { eyebrow: "LA COLLECTION", title: "Deux éditions, une philosophie.", subtitle: "Choisissez le format adapté à votre espace. Chaque édition est disponible en quatre finitions raffinées.", explore: "Découvrir" },
     features: { eyebrow: "PENSÉ POUR LE DÉTAIL", title: "Un objet réfléchi, dans chaque geste.", f1t: "Réservoir amovible", f1d: "Un réservoir intérieur robuste, facile à retirer, remplir et nettoyer.", f2t: "Pompe rechargeable", f2d: "Débit d'eau constant avec recharge USB-C discrète.", f3t: "Pistolet ergonomique", f3d: "Simple, efficace et confortable pour un usage quotidien.", f4t: "Aucune interface visible", f4d: "Un extérieur épuré sans écran tactile ni commande superflue." },
     hospitality: { eyebrow: "CONÇU POUR L'HÔTELLERIE MODERNE", title: "Confort attentionné,", title2: "expériences élevées.", subtitle: "Pour de nombreux voyageurs internationaux, l'hygiène à l'eau est une habitude quotidienne essentielle. PUREFLO permet aux établissements d'offrir ce confort instantanément, sans installation.", items: ["Hôtels boutique & maisons d'hôtes design", "Hôtes Airbnb premium & appartements de service", "Restaurants aux toilettes raffinées", "Espaces bien-être, spas & lounges privés", "Opérateurs hôteliers servant une clientèle internationale", "Une mise à niveau sans rénovation pour toute salle de bain"] },
-    pilot: { eyebrow: "PROGRAMME PILOTE", title: "Apportez PUREFLO à votre établissement.", subtitle: "Des hôtels boutique, restaurants et espaces hôteliers premium sélectionnés sont invités à accueillir des unités PUREFLO pour un placement pilote. Découvrez comment un détail raffiné peut sublimer votre expérience client.", cta: "DEMANDER UN ENTRETIEN PILOTE" },
+    pilot: { eyebrow: "DEMANDES HÔTELLIÈRES", title: "Apportez PUREFLO à votre établissement.", subtitle: "PUREFLO est conçu pour les hôtels boutique, spas, locations haut de gamme et espaces hôteliers premium qui souhaitent offrir une expérience d'hygiène à l'eau élégante, sans installation fixe.", cta: "DEMANDER LA BROCHURE B2B" },
     product: { back: "Retour à la collection", finishLabel: "FINITION", spec: "SPÉCIFICATIONS", specTitle: "Pensé, dans chaque dimension.", capacity: "CAPACITÉ", dimensions: "DIMENSIONS", power: "ALIMENTATION", usbc: "Rechargeable USB-C", chargingPort: "Port de charge discret", bestFor: "Idéal pour", inBox: "Contenu du coffret", boxItems: ["1× Unité PUREFLO avec coque premium", "1× Réservoir d'eau amovible", "1× Pistolet pulvérisateur", "1× Tuyau", "1× Câble USB-C", "1× Manuel d'utilisation"], also: "ÉGALEMENT DANS LA COLLECTION", discover: "Découvrir l'", view: "VOIR L'ÉDITION", cta: "DEMANDER UN PILOTE" },
     contact: { back: "Retour à l'accueil", eyebrow: "CONTACTEZ-NOUS", title: "Demander un pilote.", subtitle: "Parlez-nous de votre établissement. Nous nous associons avec des hôtels boutique, restaurants et espaces premium sélectionnés pour des placements pilotes.", name: "NOM", venue: "ÉTABLISSEMENT / SOCIÉTÉ", email: "EMAIL", message: "PARLEZ-NOUS DE VOTRE ÉTABLISSEMENT", send: "ENVOYER LA DEMANDE", thanks: "Merci.", confirmation: "Votre demande a bien été reçue. Nous reviendrons vers vous prochainement.", return: "RETOUR À L'ACCUEIL" },
     footer: { brand: "Système d'hygiène portable premium. Confort attentionné pour l'hôtellerie moderne.", collection: "COLLECTION", contact: "CONTACT", rights: "© 2026 PUREFLO. Tous droits réservés.", tagline: "Le luxe se révèle dans les détails." },
@@ -89,15 +101,20 @@ function ProductRender({ variant }) {
   );
 }
 
-// The four-product hero image, mimicking the reference
 function FourProductsImage() {
   return (
-    <div className="w-full h-full overflow-hidden">
-      <img
-        src="/Pureflo_Bidet_premium.png"
-        alt="PUREFLO premium portable hygiene system"
-        className="w-full h-full object-cover"
-      />
+    <div className="w-full h-full overflow-hidden bg-stone-100">
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet="/Pureflo_Bidet_premium_mobile.png"
+        />
+        <img
+          src="/Pureflo_Bidet_premium.png"
+          alt="PUREFLO premium portable hygiene system"
+          className="w-full h-full object-cover object-center"
+        />
+      </picture>
     </div>
   );
 }
@@ -108,8 +125,12 @@ function Nav({ onNav, current, lang, setLang }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-stone-50/80 border-b border-stone-200/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-        <button onClick={() => onNav("home")} className="font-serif text-xl tracking-[0.3em] text-stone-800">
-          PUREFLO
+        <button onClick={() => onNav("home")} className="flex items-center shrink-0">
+          <img
+            src="/logo_pureflo.png"
+            alt="PUREFLO"
+            className="h-7 md:h-9 w-auto"
+          />
         </button>
         <div className="hidden md:flex items-center gap-10 text-sm tracking-wider text-stone-600">
           <button onClick={() => onNav("home")} className={`hover:text-stone-900 transition-colors ${current === "home" ? "text-stone-900" : ""}`}>{tr.nav.home}</button>
@@ -175,16 +196,26 @@ function Home({ onNav, lang }) {
               <p className="text-stone-100/95 text-base md:text-lg leading-relaxed mb-8 max-w-lg drop-shadow-lg">
                 {tr.hero.subtitle}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={scrollToCollection} className="group flex items-center justify-between gap-4 px-7 py-4 bg-stone-50 text-stone-900 text-sm tracking-wider hover:bg-white transition-colors shadow-xl">
-                  {tr.hero.cta1}
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button onClick={() => onNav("contact")} className="px-7 py-4 border border-stone-50 text-stone-50 text-sm tracking-wider hover:bg-stone-50 hover:text-stone-900 transition-colors backdrop-blur-sm bg-white/10">
-                  {tr.hero.cta2}
-                </button>
-              </div>
+              <button onClick={scrollToCollection} className="group flex items-center justify-between gap-4 px-7 py-4 bg-stone-50 text-stone-900 text-sm tracking-wider hover:bg-white transition-colors shadow-xl">
+                {tr.hero.cta1}
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why PUREFLO */}
+      <section className="py-24 px-6 md:px-12 bg-stone-50">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs tracking-[0.4em] text-stone-500 mb-20 text-center">{tr.why.eyebrow}</p>
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+            {tr.why.items.map((item, i) => (
+              <div key={i} className="border-l-2 border-stone-200 pl-6">
+                <h3 className="font-serif text-2xl text-stone-900 mb-3">{item.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -193,20 +224,10 @@ function Home({ onNav, lang }) {
       <section className="py-24 px-6 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs tracking-[0.4em] text-stone-500 mb-4 text-center">{tr.vision.eyebrow}</p>
-          <h2 className="font-serif text-4xl md:text-5xl text-stone-900 text-center mb-20">{tr.vision.title}</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { title: tr.vision.p1t, text: tr.vision.p1d },
-              { title: tr.vision.p2t, text: tr.vision.p2d },
-              { title: tr.vision.p3t, text: tr.vision.p3d },
-            ].map((p, i) => (
-              <div key={i} className="border-l-2 border-stone-200 pl-6">
-                <div className="text-stone-400 font-serif text-3xl mb-4">0{i+1}</div>
-                <h3 className="font-serif text-2xl text-stone-900 mb-3">{p.title}</h3>
-                <p className="text-stone-600 leading-relaxed">{p.text}</p>
-              </div>
-            ))}
-          </div>
+          <h2 className="font-serif text-4xl md:text-5xl text-stone-900 text-center mb-10">
+            {tr.vision.title1}<br />{tr.vision.title2}
+          </h2>
+          <p className="text-stone-600 text-lg leading-relaxed text-center max-w-2xl mx-auto">{tr.vision.text}</p>
         </div>
       </section>
 
