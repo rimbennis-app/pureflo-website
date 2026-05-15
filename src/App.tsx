@@ -92,11 +92,11 @@ function ProductRender({ variant }) {
 // The four-product hero image, mimicking the reference
 function FourProductsImage() {
   return (
-    <div className="w-full h-full bg-stone-100">
+    <div className="w-full h-full overflow-hidden">
       <img
         src="/Pureflo_Bidet_premium.png"
         alt="PUREFLO premium portable hygiene system"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
       />
     </div>
   );
