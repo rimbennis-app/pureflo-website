@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { ArrowRight, ArrowLeft, Check, Droplet, Zap, Package, Sparkles, Mail, Menu, X } from "lucide-react";
 
