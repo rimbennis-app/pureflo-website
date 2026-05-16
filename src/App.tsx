@@ -1,5 +1,12 @@
 // @ts-nocheck
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const pages = ["home", "hospitality", "compact", "contact"];
+
+function pageFromHash() {
+  const hash = window.location.hash.replace(/^#\/?/, "");
+  return pages.includes(hash) ? hash : "home";
+}
 import { ArrowRight, ArrowLeft, Check, Droplet, Zap, Package, Sparkles, Mail, Menu, X } from "lucide-react";
 
 const variants = [
@@ -23,8 +30,8 @@ const t = {
     collection: { eyebrow: "THE COLLECTION", title: "Two editions, one philosophy.", subtitle: "Choose the format that suits your space. Each edition is available in four refined finishes.", explore: "Explore" },
     features: { eyebrow: "DESIGNED FOR THE DETAIL", title: "A considered object, in every gesture.", f1t: "Removable water tank", f1d: "A robust inner tank, easy to remove, refill and clean.", f2t: "Rechargeable pump", f2d: "Consistent water flow with discreet USB-C charging.", f3t: "Ergonomic spray wand", f3d: "Simple, effective and comfortable for everyday use.", f4t: "No visible interface", f4d: "A clean exterior without touch screens or unnecessary controls." },
     hospitality: { eyebrow: "MADE FOR MODERN HOSPITALITY", title: "Thoughtful comfort,", title2: "elevated experiences.", subtitle: "For many international guests, water-based hygiene is an essential daily habit. PUREFLO allows venues to offer that comfort instantly, without installation.", items: ["Boutique hotels & design-led guesthouses", "Premium Airbnb hosts & serviced apartments", "Restaurants with refined restrooms", "Wellness spaces, spas & private lounges", "Hospitality operators serving international guests", "Renovation-free upgrade for any bathroom"] },
-    pilot: { eyebrow: "HOSPITALITY INQUIRIES", title: "Bring PUREFLO to your venue.", subtitle: "PUREFLO is designed for boutique hotels, spas, luxury rentals and premium hospitality spaces looking to offer an elegant, water-based hygiene experience without fixed installation.", cta: "REQUEST THE B2B BROCHURE" },
-    product: { back: "Back to collection", finishLabel: "FINISH", spec: "SPECIFICATIONS", specTitle: "Considered, in every dimension.", capacity: "CAPACITY", dimensions: "DIMENSIONS", power: "POWER", usbc: "USB-C Rechargeable", chargingPort: "Discreet charging port", bestFor: "Best suited for", inBox: "What's in the box", boxItems: ["1× PUREFLO unit with premium outer shell", "1× Removable water tank", "1× Spray wand", "1× Hose", "1× USB-C cable", "1× User manual"], also: "ALSO IN THE COLLECTION", discover: "Discover the", view: "VIEW THE", cta: "REQUEST A PILOT" },
+    pilot: { eyebrow: "HOSPITALITY INQUIRIES", title: "Bring PUREFLO to your venue.", subtitle: "PUREFLO is designed for boutique hotels, spas, luxury rentals and premium hospitality spaces looking to offer an elegant, water-based hygiene experience without fixed installation.", },
+    product: { back: "Back to collection", finishLabel: "FINISH", spec: "SPECIFICATIONS", specTitle: "Considered, in every dimension.", capacity: "CAPACITY", dimensions: "DIMENSIONS", power: "POWER", usbc: "USB-C Rechargeable", chargingPort: "Discreet charging port", bestFor: "Best suited for", inBox: "What's in the box", boxItems: ["1× PUREFLO unit with premium outer shell", "1× Removable water tank", "1× Spray wand", "1× Hose", "1× USB-C cable", "1× User manual"], also: "ALSO IN THE COLLECTION", discover: "Discover the", view: "VIEW THE" },
     contact: { back: "Back to home", eyebrow: "GET IN TOUCH", title: "Request a pilot.", subtitle: "Tell us about your venue. We're partnering with selected boutique hotels, restaurants and premium hospitality spaces for pilot placements.", name: "NAME", venue: "VENUE / COMPANY", email: "EMAIL", message: "TELL US ABOUT YOUR VENUE", send: "SEND ENQUIRY", thanks: "Thank you.", confirmation: "Your enquiry has been received. We will be in touch shortly.", return: "RETURN HOME" },
     footer: { brand: "Premium portable hygiene system. Thoughtful comfort for modern hospitality.", collection: "COLLECTION", contact: "CONTACT", rights: "© 2026 PUREFLO. All rights reserved.", tagline: "Luxury lives in the details." },
     products: {
@@ -45,8 +52,8 @@ const t = {
     collection: { eyebrow: "LA COLLECTION", title: "Deux éditions, une philosophie.", subtitle: "Choisissez le format adapté à votre espace. Chaque édition est disponible en quatre finitions raffinées.", explore: "Découvrir" },
     features: { eyebrow: "PENSÉ POUR LE DÉTAIL", title: "Un objet réfléchi, dans chaque geste.", f1t: "Réservoir amovible", f1d: "Un réservoir intérieur robuste, facile à retirer, remplir et nettoyer.", f2t: "Pompe rechargeable", f2d: "Débit d'eau constant avec recharge USB-C discrète.", f3t: "Pistolet ergonomique", f3d: "Simple, efficace et confortable pour un usage quotidien.", f4t: "Aucune interface visible", f4d: "Un extérieur épuré sans écran tactile ni commande superflue." },
     hospitality: { eyebrow: "CONÇU POUR L'HÔTELLERIE MODERNE", title: "Confort attentionné,", title2: "expériences élevées.", subtitle: "Pour de nombreux voyageurs internationaux, l'hygiène à l'eau est une habitude quotidienne essentielle. PUREFLO permet aux établissements d'offrir ce confort instantanément, sans installation.", items: ["Hôtels boutique & maisons d'hôtes design", "Hôtes Airbnb premium & appartements de service", "Restaurants aux toilettes raffinées", "Espaces bien-être, spas & lounges privés", "Opérateurs hôteliers servant une clientèle internationale", "Une mise à niveau sans rénovation pour toute salle de bain"] },
-    pilot: { eyebrow: "DEMANDES HÔTELLIÈRES", title: "Apportez PUREFLO à votre établissement.", subtitle: "PUREFLO est conçu pour les hôtels boutique, spas, locations haut de gamme et espaces hôteliers premium qui souhaitent offrir une expérience d'hygiène à l'eau élégante, sans installation fixe.", cta: "DEMANDER LA BROCHURE B2B" },
-    product: { back: "Retour à la collection", finishLabel: "FINITION", spec: "SPÉCIFICATIONS", specTitle: "Pensé, dans chaque dimension.", capacity: "CAPACITÉ", dimensions: "DIMENSIONS", power: "ALIMENTATION", usbc: "Rechargeable USB-C", chargingPort: "Port de charge discret", bestFor: "Idéal pour", inBox: "Contenu du coffret", boxItems: ["1× Unité PUREFLO avec coque premium", "1× Réservoir d'eau amovible", "1× Pistolet pulvérisateur", "1× Tuyau", "1× Câble USB-C", "1× Manuel d'utilisation"], also: "ÉGALEMENT DANS LA COLLECTION", discover: "Découvrir l'", view: "VOIR L'ÉDITION", cta: "DEMANDER UN PILOTE" },
+    pilot: { eyebrow: "DEMANDES HÔTELLIÈRES", title: "Apportez PUREFLO à votre établissement.", subtitle: "PUREFLO est conçu pour les hôtels boutique, spas, locations haut de gamme et espaces hôteliers premium qui souhaitent offrir une expérience d'hygiène à l'eau élégante, sans installation fixe.", },
+    product: { back: "Retour à la collection", finishLabel: "FINITION", spec: "SPÉCIFICATIONS", specTitle: "Pensé, dans chaque dimension.", capacity: "CAPACITÉ", dimensions: "DIMENSIONS", power: "ALIMENTATION", usbc: "Rechargeable USB-C", chargingPort: "Port de charge discret", bestFor: "Idéal pour", inBox: "Contenu du coffret", boxItems: ["1× Unité PUREFLO avec coque premium", "1× Réservoir d'eau amovible", "1× Pistolet pulvérisateur", "1× Tuyau", "1× Câble USB-C", "1× Manuel d'utilisation"], also: "ÉGALEMENT DANS LA COLLECTION", discover: "Découvrir l'", view: "VOIR L'ÉDITION" },
     contact: { back: "Retour à l'accueil", eyebrow: "CONTACTEZ-NOUS", title: "Demander un pilote.", subtitle: "Parlez-nous de votre établissement. Nous nous associons avec des hôtels boutique, restaurants et espaces premium sélectionnés pour des placements pilotes.", name: "NOM", venue: "ÉTABLISSEMENT / SOCIÉTÉ", email: "EMAIL", message: "PARLEZ-NOUS DE VOTRE ÉTABLISSEMENT", send: "ENVOYER LA DEMANDE", thanks: "Merci.", confirmation: "Votre demande a bien été reçue. Nous reviendrons vers vous prochainement.", return: "RETOUR À L'ACCUEIL" },
     footer: { brand: "Système d'hygiène portable premium. Confort attentionné pour l'hôtellerie moderne.", collection: "COLLECTION", contact: "CONTACT", rights: "© 2026 PUREFLO. Tous droits réservés.", tagline: "Le luxe se révèle dans les détails." },
     products: {
@@ -322,11 +329,7 @@ function Home({ onNav, lang }) {
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs tracking-[0.4em] text-stone-500 mb-6">{tr.pilot.eyebrow}</p>
           <h2 className="font-serif text-4xl md:text-6xl text-stone-900 leading-tight mb-8">{tr.pilot.title}</h2>
-          <p className="text-stone-600 text-lg leading-relaxed mb-10">{tr.pilot.subtitle}</p>
-          <button onClick={() => onNav("contact")} className="inline-flex items-center gap-4 px-8 py-4 bg-stone-900 text-stone-50 text-sm tracking-wider hover:bg-stone-800 transition-colors">
-            {tr.pilot.cta}
-            <ArrowRight size={16} />
-          </button>
+          <p className="text-stone-600 text-lg leading-relaxed">{tr.pilot.subtitle}</p>
         </div>
       </section>
     </div>
@@ -376,10 +379,6 @@ function ProductPage({ productKey, onNav, lang }) {
               <p className="text-sm text-stone-500 italic">{variantDesc}</p>
             </div>
 
-            <button onClick={() => onNav("contact")} className="group w-full sm:w-auto flex items-center justify-between gap-4 px-8 py-4 bg-stone-900 text-stone-50 text-sm tracking-wider hover:bg-stone-800 transition-colors">
-              {tr.cta}
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
           </div>
         </div>
       </section>
@@ -545,11 +544,18 @@ function Footer({ lang }) {
 }
 
 export default function App() {
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState(pageFromHash);
   const [lang, setLang] = useState("en");
+
+  useEffect(() => {
+    const onHashChange = () => setPage(pageFromHash());
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
   
   const nav = (p) => {
     setPage(p);
+    window.location.hash = p === "home" ? "" : p;
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   
